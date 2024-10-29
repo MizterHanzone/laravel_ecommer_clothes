@@ -116,13 +116,13 @@
                                 </li>
 
                                 <li class="menu-item has-children">
-                                    <a href="javascript:void(0);" class="menu-item-button">
+                                    <a href="javascript:void(0)" class="menu-item-button">
                                         <div class="icon"><i class="icon-file-plus"></i></div>
                                         <div class="text">Order</div>
                                     </a>
                                     <ul class="sub-menu">
                                         <li class="sub-menu-item">
-                                            <a href="orders.html" class="">
+                                            <a href="{{route('admin.orders')}}" class="">
                                                 <div class="text">Orders</div>
                                             </a>
                                         </li>
@@ -140,7 +140,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="coupons.html" class="">
+                                    <a href="{{route('admin.coupons')}}" class="">
                                         <div class="icon"><i class="icon-grid"></i></div>
                                         <div class="text">Coupns</div>
                                     </a>

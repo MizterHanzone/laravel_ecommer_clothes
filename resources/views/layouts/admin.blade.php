@@ -19,8 +19,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('font/fonts.css')}}">
     <link rel="stylesheet" href="{{asset('icon/style.css')}}">
-    <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}">
-    <link rel="apple-touch-icon-precomposed" href="{{asset('images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('assets/images/boutiqe-2.png')}}">
+    <link rel="apple-touch-icon-precomposed" href="{{asset('assets/images/boutiqe-2.png')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom.css')}}">
     
@@ -40,7 +40,7 @@
                 <div class="section-menu-left">
                     <div class="box-logo">
                         <a href="" id="site-logo-inner">
-                            <img class="" id="logo_header_1" alt="" src="{{asset('images/logo/logo.png')}}" data-light="{{asset('images/logo/logo.png')}}" data-dark="{{asset('images/logo/logo.png')}}">
+                            <img class="" id="logo_header_1" alt="" src="{{asset('assets/images/boutiqe-1.png')}}" data-light="{{asset('assets/images/boutiqe-1.png')}}" data-dark="{{asset('images/logo/logo.png')}}">
                         </a>
                         <div class="button-show-hide">
                             <i class="icon-menu-left"></i>

@@ -134,27 +134,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($orderItems as $orderitem)
+                                    @foreach ($orderItems as $item)
                                         <tr>
 
                                             <td class="pname">
                                                 <div class="image">
-                                                    <img src="{{ asset('uploads/products/thumbnail') }}/{{ $orderitem->product->image }}"
+                                                    <img src="{{ asset('uploads/products/thumbnail') }}/{{ $item->product->image }}"
                                                         alt="" class="image">
                                                 </div>
                                                 <div class="name">
-                                                    <a href="{{ route('shop.product_details', ['product_slug' => $orderitem->product->slug]) }}"
-                                                        target="_blank"
-                                                        class="body-title-2">{{ $orderitem->product->name }}</a>
+                                                    <a href="{{ route('shop.product_details', ['product_slug' => $item->product->slug]) }}"
+                                                        target="_blank" class="body-title-2">{{ $item->product->name }}</a>
                                                 </div>
                                             </td>
-                                            <td class="text-center">${{ $orderitem->price }}</td>
-                                            <td class="text-center">{{ $orderitem->quantity }}</td>
-                                            <td class="text-center">{{ $orderitem->product->SKU }}</td>
-                                            <td class="text-center">{{ $orderitem->product->category->name }}</td>
-                                            <td class="text-center">{{ $orderitem->product->brand->name }}</td>
-                                            <td class="text-center">{{ $orderitem->options }}</td>
-                                            <td class="text-center">{{ $orderitem->rstatus == 0 ? 'No' : 'Yes' }}</td>
+                                            <td class="text-center">${{ $item->price }}</td>
+                                            <td class="text-center">{{ $item->quantity }}</td>
+                                            <td class="text-center">{{ $item->product->SKU }}</td>
+                                            <td class="text-center">{{ $item->product->category->name }}</td>
+                                            <td class="text-center">{{ $item->product->brand->name }}</td>
+                                            <td class="text-center">{{ $item->options }}</td>
+                                            <td class="text-center">{{ $item->rstatus == 0 ? 'No' : 'Yes' }}</td>
                                             <td class="text-center">
                                                 <a href="{{ route('shop.product_details', ['product_slug' => $orderitem->product->slug]) }}"
                                                     target="_blank">
@@ -224,10 +223,39 @@
                                 </tr>
                             </table>
                         </div>
+                        <div class="wg-box mt-5 text-right">                    
+                            <form action="{{route('user.account_cancel_order')}}" method="POST">
+                                @csrf
+                                @method("PUT")
+                                <input type="hidden" name="order_id" value="{{$order->id}}" />
+                                <button type="button" class="btn btn-danger delete">Cancel Order</button>                        
+                            </form>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </section>
     </main>
 @endsection
+
+@push('script')
+    <script>
+        $(function(){
+            $('.delete').on('click', function(e){
+                e.preventDefault();
+                var form = $(this).closest('form');
+                swal({
+                    title: 'Do you want to delete this ?',
+                    text: 'When delete will not recover!',
+                    type: 'warning',
+                    buttons: ['No', 'Yes'],
+                    confirmButtonColor: '#dc3545'
+                }).then(function(result){
+                    if(result){
+                        form.submit();
+                    }
+                })
+            })
+        })
+    </script>
+@endpush

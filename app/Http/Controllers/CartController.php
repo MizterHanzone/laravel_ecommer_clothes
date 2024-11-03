@@ -63,6 +63,7 @@ class CartController extends Controller
         $coupon_code = $request->coupon_code;
         if (isset($coupon_code)) {
             $coupon = Coupon::where('code', $coupon_code)->where('expiry_date', '>=', Carbon::today())->where('cart_value', '<=', Cart::instance('cart')->subtotal())->first();
+            dd($coupon);
             if (!$coupon) {
                 return back()->with('error', 'Invalid coupon code!');
             }
